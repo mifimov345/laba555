@@ -1,0 +1,30 @@
+﻿@page
+@model laba555.Pages.UploadModel
+@{
+    ViewData["Title"] = "Upload";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="imageFile">Choose Image File:</label>
+        <input type="file" class="form-control-file" id="imageFile" name="imageFile">
+    </div>
+    <button type="submit" class="btn btn-primary">Upload</button>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.ImagePath))
+{
+    <h2>Original Image</h2>
+    <img src="@Model.ImagePath" alt="Original Image">
+
+    <h2>Gray Image</h2>
+    <img src="@Url.Content(Model.GrayImagePath)" alt="Gray Image">
+
+    <h2>Contrast Image</h2>
+    <img src="@Url.Content(Model.ContrastImagePath)" alt="Contrast Image">
+
+    <h2>Blur Image</h2>
+    <img src="@Url.Content(Model.BlurImagePath)" alt="Blur Image">
+}
